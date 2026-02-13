@@ -20,7 +20,7 @@
     --warm-light: 210 20% 97%;
     --warm-border: 210 16% 92%;
     --warm-text: 0 0% 17%;
-    --warm-muted: 210 12% 45%;
+    --warm-muted: 210 10% 32%;  /* Enhanced contrast: was 210 12% 45% */
 
     /* Brand Mapping */
     --primary-dark: var(--navy);
@@ -367,39 +367,87 @@ a:focus-visible {
 }
 
 @layer utilities {
-  /* Display typography - Hero statements */
+  /* Display typography - Hero statements - RESPONSIVE */
   .text-display {
-    font-size: 4.5rem;
+    font-size: 2.25rem;
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.03em;
     color: hsl(var(--warm-text));
   }
 
-  /* Heading 1 - Primary section titles */
+  @media (min-width: 640px) {
+    .text-display {
+      font-size: 3.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .text-display {
+      font-size: 4.5rem;
+    }
+  }
+
+  /* Heading 1 - Primary section titles - RESPONSIVE */
   .text-heading-1 {
-    font-size: 3.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.025em;
     color: hsl(var(--warm-text));
   }
 
-  /* Heading 2 - Secondary titles */
+  @media (min-width: 640px) {
+    .text-heading-1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .text-heading-1 {
+      font-size: 3.5rem;
+    }
+  }
+
+  /* Heading 2 - Secondary titles - RESPONSIVE */
   .text-heading-2 {
-    font-size: 2.5rem;
+    font-size: 1.375rem;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.015em;
     color: hsl(var(--warm-text));
   }
 
-  /* Heading 3 - Tertiary titles */
+  @media (min-width: 640px) {
+    .text-heading-2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .text-heading-2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Heading 3 - Tertiary titles - RESPONSIVE */
   .text-heading-3 {
-    font-size: 1.875rem;
+    font-size: 1.1rem;
     font-weight: 600;
     line-height: 1.25;
     letter-spacing: -0.01em;
     color: hsl(var(--warm-text));
+  }
+
+  @media (min-width: 640px) {
+    .text-heading-3 {
+      font-size: 1.375rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .text-heading-3 {
+      font-size: 1.875rem;
+    }
   }
 }

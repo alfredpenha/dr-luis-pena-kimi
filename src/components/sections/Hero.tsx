@@ -44,7 +44,7 @@ export function Hero() {
       {/* Main Hero Content */}
       <div className="flex-1 flex items-center">
         <div className="max-w-7xl mx-auto container-padding py-12 lg:py-16 relative z-10 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Text Content */}
             <div className="space-y-7">
               {/* Micro Badge */}
