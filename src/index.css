@@ -9,36 +9,36 @@
     --navy: 210 30% 17%;
     --navy-light: 210 28% 23%;
     --navy-lighter: 210 25% 30%;
-    
+
     /* Medical Jade - Accent */
     --jade: 177 57% 28%;
     --jade-light: 177 50% 35%;
     --jade-dark: 177 60% 22%;
-    
+
     /* Warm Gray Scale */
     --warm-white: 0 0% 100%;
     --warm-light: 210 20% 97%;
     --warm-border: 210 16% 92%;
     --warm-text: 0 0% 17%;
     --warm-muted: 210 12% 45%;
-    
+
     /* Brand Mapping */
     --primary-dark: var(--navy);
     --primary: var(--navy);
     --primary-light: var(--navy-light);
-    
+
     --accent: var(--jade);
     --accent-hover: var(--jade-dark);
     --accent-light: var(--jade-light);
-    
+
     --neutral-white: var(--warm-white);
     --neutral-light: var(--warm-light);
     --neutral-border: var(--warm-border);
     --neutral-text: var(--warm-muted);
     --neutral-heading: var(--warm-text);
-    
+
     --success: 160 55% 35%;
-    
+
     /* shadcn/ui Theme Variables */
     --background: 0 0% 100%;
     --foreground: 0 0% 17%;
@@ -60,7 +60,7 @@
     --input: 210 16% 92%;
     --ring: 177 57% 28%;
     --radius: 0.625rem;
-    
+
     /* Sidebar */
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 210 12% 45%;
@@ -77,48 +77,48 @@
   * {
     @apply border-border;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   /* Heading hierarchy with refined medical elegance */
   h1 {
     @apply font-bold tracking-tight;
     color: hsl(var(--warm-text));
     letter-spacing: -0.025em;
   }
-  
+
   h2 {
     @apply font-semibold;
     color: hsl(var(--warm-text));
     letter-spacing: -0.015em;
   }
-  
+
   h3, h4 {
     @apply font-semibold;
     color: hsl(var(--warm-text));
   }
-  
+
   h5, h6 {
     @apply font-medium;
     color: hsl(var(--warm-text));
   }
-  
+
   /* Body text: lighter weight, improved breathing */
   p {
     @apply font-normal;
     color: hsl(var(--warm-muted));
     line-height: 1.8;
   }
-  
+
   /* Emphasis text maintains readability */
   strong, b {
     @apply font-semibold;
@@ -131,19 +131,19 @@
   .bg-gradient-navy {
     background: linear-gradient(165deg, hsl(var(--navy)) 0%, hsl(var(--navy-light)) 100%);
   }
-  
+
   .bg-gradient-navy-subtle {
     background: linear-gradient(180deg, hsl(var(--navy)) 0%, hsl(210 28% 20%) 100%);
   }
-  
+
   .bg-gradient-hero {
     background: linear-gradient(180deg, hsl(var(--warm-light)) 0%, hsl(var(--warm-white)) 60%);
   }
-  
+
   .bg-gradient-warm {
     background: linear-gradient(180deg, hsl(var(--warm-white)) 0%, hsl(var(--warm-light)) 100%);
   }
-  
+
   /* Text Gradient */
   .text-gradient-navy {
     background: linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--navy-light)) 100%);
@@ -151,41 +151,41 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .text-gradient-jade {
     background: linear-gradient(135deg, hsl(var(--jade)) 0%, hsl(var(--jade-light)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   /* Premium Shadows */
   .shadow-premium {
-    box-shadow: 
+    box-shadow:
       0 2px 8px -2px rgba(30, 42, 56, 0.06),
       0 8px 24px -4px rgba(30, 42, 56, 0.04);
   }
-  
+
   .shadow-premium-hover {
-    box-shadow: 
+    box-shadow:
       0 8px 24px -4px rgba(30, 42, 56, 0.10),
       0 16px 40px -8px rgba(30, 42, 56, 0.06);
   }
-  
+
   .shadow-elevated {
-    box-shadow: 
+    box-shadow:
       0 12px 32px -6px rgba(30, 42, 56, 0.12),
       0 24px 48px -12px rgba(30, 42, 56, 0.08);
   }
-  
+
   .shadow-glow-jade {
     box-shadow: 0 0 24px rgba(31, 111, 107, 0.20);
   }
-  
+
   .shadow-glow-jade-soft {
     box-shadow: 0 0 32px rgba(31, 111, 107, 0.12);
   }
-  
+
   /* Glass Effect Premium */
   .glass-premium {
     background: rgba(255, 255, 255, 0.85);
@@ -193,49 +193,49 @@
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(30, 42, 56, 0.06);
   }
-  
+
   /* Section Styling */
   .section-padding {
     @apply py-20 md:py-28;
   }
-  
+
   .container-padding {
     @apply px-4 sm:px-6 lg:px-8 xl:px-12;
   }
-  
+
   /* Card Micro-elevation */
   .card-elevate {
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
                 box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  
+
   .card-elevate:hover {
     transform: translateY(-4px);
-    box-shadow: 
+    box-shadow:
       0 12px 32px -6px rgba(30, 42, 56, 0.12),
       0 24px 48px -12px rgba(30, 42, 56, 0.06);
   }
-  
+
   /* Button Premium States */
   .btn-jade {
     @apply bg-accent text-white font-medium;
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  
+
   .btn-jade:hover {
     @apply bg-accent-hover;
     transform: translateY(-1px);
     box-shadow: 0 8px 24px -4px rgba(31, 111, 107, 0.35);
   }
-  
+
   /* Subtle Background Patterns */
   .bg-pattern-dots {
     background-image: radial-gradient(circle at 1px 1px, rgba(30, 42, 56, 0.04) 1px, transparent 0);
     background-size: 32px 32px;
   }
-  
+
   .bg-pattern-grid {
-    background-image: 
+    background-image:
       linear-gradient(rgba(30, 42, 56, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(30, 42, 56, 0.02) 1px, transparent 1px);
     background-size: 48px 48px;
@@ -292,7 +292,7 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   html {
     scroll-behavior: auto;
   }
@@ -300,30 +300,6 @@
 
 /* Premium Medical Typography Classes */
 @layer components {
-  /* Hero/Display - Powerful primary statements */
-  .text-display {
-    @apply text-display font-bold -tracking-widest;
-    color: hsl(var(--warm-text));
-  }
-  
-  /* Primary Heading - Main section titles with authority */
-  .text-heading-1 {
-    @apply text-heading-1 font-bold;
-    color: hsl(var(--warm-text));
-  }
-  
-  /* Secondary Heading - Elegant and refined */
-  .text-heading-2 {
-    @apply text-heading-2 font-semibold;
-    color: hsl(var(--warm-text));
-  }
-  
-  /* Tertiary Heading - Clear hierarchy */
-  .text-heading-3 {
-    @apply text-heading-3 font-semibold;
-    color: hsl(var(--warm-text));
-  }
-  
   /* Subtitle/Lead - Premium introduction text */
   .text-lead {
     @apply text-lg md:text-xl font-normal;
@@ -331,29 +307,29 @@
     line-height: 1.8;
     letter-spacing: -0.01em;
   }
-  
+
   /* Medical Accent - Highlight important clinical info */
   .text-medical-accent {
     color: hsl(var(--jade));
     @apply font-semibold;
   }
-  
+
   /* Breathing - Enhanced line-height for readability */
   .text-breathing {
     line-height: 1.9;
     letter-spacing: 0.01em;
   }
-  
+
   /* Premium Section Title - For major content sections */
   .section-title {
-    @apply text-heading-1 font-bold;
+    @apply text-4xl font-bold;
     color: hsl(var(--warm-text));
     margin-bottom: 1rem;
   }
-  
+
   /* Premium Section Subtitle */
   .section-subtitle {
-    @apply text-heading-2 font-semibold;
+    @apply text-3xl font-semibold;
     color: hsl(var(--neutral-text));
     margin-bottom: 0.5rem;
   }
@@ -388,4 +364,42 @@ button:focus-visible,
 a:focus-visible {
   outline: 2px solid hsl(var(--jade));
   outline-offset: 2px;
+}
+
+@layer utilities {
+  /* Display typography - Hero statements */
+  .text-display {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: hsl(var(--warm-text));
+  }
+
+  /* Heading 1 - Primary section titles */
+  .text-heading-1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: hsl(var(--warm-text));
+  }
+
+  /* Heading 2 - Secondary titles */
+  .text-heading-2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: hsl(var(--warm-text));
+  }
+
+  /* Heading 3 - Tertiary titles */
+  .text-heading-3 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: hsl(var(--warm-text));
+  }
 }
