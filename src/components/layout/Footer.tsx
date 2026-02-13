@@ -26,13 +26,13 @@ export function Footer() {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <img
-                src="/images/logo.png"
+                src="images/logo.png"
                 alt="Dr. Luis Peña"
                 className="h-16 w-auto brightness-0 invert"
               />
             </div>
             <p className="text-white/70 text-body leading-relaxed">
-              Atención médica especializada con tecnología de vanguardia en ultrasonido diagnóstico. 
+              Atención médica especializada con tecnología de vanguardia en ultrasonido diagnóstico.
               Tu salud en manos expertas.
             </p>
             <div className="flex items-center gap-4">

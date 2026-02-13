@@ -53,7 +53,7 @@ export function Header() {
             onClick={() => handleNavClick('logo')}
           >
             <img
-              src="/images/logo.png"
+              src="images/logo.png"
               alt="Dr. Luis Peña"
               className="h-12 w-auto"
             />

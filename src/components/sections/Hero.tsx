@@ -74,7 +74,7 @@ export function Hero() {
                   <span className="text-gradient-navy">tecnología de ultrasonido avanzada</span>
                 </h1>
                 <p className="text-body-lg text-[hsl(var(--warm-muted))] max-w-xl leading-relaxed">
-                  Atención médica personalizada respaldada por años de experiencia 
+                  Atención médica personalizada respaldada por años de experiencia
                   y equipamiento diagnóstico de alta precisión para resultados confiables.
                 </p>
               </div>
@@ -140,16 +140,16 @@ export function Hero() {
                 {/* Decorative Elements */}
                 <div className="absolute -top-6 -left-6 w-28 h-28 bg-[hsl(var(--jade))]/8 rounded-full blur-2xl" />
                 <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-[hsl(var(--navy))]/8 rounded-full blur-2xl" />
-                
+
                 {/* Image Container */}
                 <div className="relative bg-white rounded-3xl shadow-elevated overflow-hidden">
                   <img
-                    src="/images/doctor.png"
+                    src="images/doctor.png"
                     alt={`${siteConfig.fullName} - Especialista en Ultrasonido Diagnóstico`}
                     className="w-full h-auto object-cover"
                     loading="eager"
                   />
-                  
+
                   {/* Doctor Name Badge */}
                   <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-premium">
                     <p className="font-semibold text-[hsl(var(--warm-text))]">

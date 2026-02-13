@@ -142,7 +142,7 @@ export function About() {
               {/* Main Image */}
               <div className="relative bg-white rounded-3xl shadow-elevated overflow-hidden">
                 <img
-                  src="/images/doctor.png"
+                  src="images/doctor.png"
                   alt={`${siteConfig.fullName} en consultorio`}
                   className="w-full h-auto object-cover"
                   loading="lazy"
@@ -184,13 +184,13 @@ export function About() {
                 Dr. Luis Alberto Peña Molina
               </h2>
               <p className="text-body-lg text-[hsl(var(--warm-muted))] leading-relaxed">
-                Médico General egresado de la {siteConfig.credentials.university} con 
-                especialización en ultrasonido diagnóstico. Comprometido con brindar 
+                Médico General egresado de la {siteConfig.credentials.university} con
+                especialización en ultrasonido diagnóstico. Comprometido con brindar
                 atención médica de calidad con un enfoque humano y profesional.
               </p>
               <p className="text-body text-[hsl(var(--warm-muted))] leading-relaxed">
-                Mi objetivo es proporcionar diagnósticos precisos y un trato cálido a 
-                cada paciente, utilizando tecnología de vanguardia en ultrasonido para 
+                Mi objetivo es proporcionar diagnósticos precisos y un trato cálido a
+                cada paciente, utilizando tecnología de vanguardia en ultrasonido para
                 ofrecer resultados confiables que contribuyan a su bienestar y salud.
               </p>
             </div>
