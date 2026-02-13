@@ -67,31 +67,31 @@ module.exports = {
       fontSize: {
         /* Display - Hero statements, powerful headings */
         'display': ['4.5rem', { lineHeight: '1.05', letterSpacing: '-0.03em', fontWeight: '700' }],
-        
+
         /* H1 - Primary section headings */
         'heading-1': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.025em', fontWeight: '700' }],
-        
+
         /* H2 - Elegant sub-headings, refined */
         'heading-2': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '600' }],
-        
+
         /* H3 - Section subheadings */
         'heading-3': ['1.875rem', { lineHeight: '1.25', letterSpacing: '-0.01em', fontWeight: '600' }],
-        
+
         /* H4 - Card titles, subsections */
         'heading-4': ['1.5rem', { lineHeight: '1.35', fontWeight: '500' }],
-        
+
         /* H5 - Minor headings */
         'heading-5': ['1.25rem', { lineHeight: '1.4', fontWeight: '500' }],
-        
+
         /* Body Large - Introduction text, featured content */
         'body-lg': ['1.125rem', { lineHeight: '1.8', fontWeight: '400' }],
-        
+
         /* Body - Main paragraph text, optimized for reading comfort */
         'body': ['1rem', { lineHeight: '1.8', fontWeight: '400' }],
-        
+
         /* Small - Secondary text, labels */
         'small': ['0.875rem', { lineHeight: '1.65', fontWeight: '400' }],
-        
+
         /* Caption - Meta information, fine print */
         'caption': ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: '500' }],
       },
