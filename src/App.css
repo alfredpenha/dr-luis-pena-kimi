@@ -21,7 +21,8 @@ section h2, section h1 {
 
 /* Enhanced Typography for Medical Brand */
 section p {
-  max-width: 65ch;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 section li {
