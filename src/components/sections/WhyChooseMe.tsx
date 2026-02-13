@@ -54,7 +54,7 @@ export function WhyChooseMe() {
           <span className="inline-block px-4 py-2 bg-[hsl(var(--jade))]/10 text-[hsl(var(--jade))] text-small font-medium rounded-full mb-4">
             Ventajas
           </span>
-          <h2 className="text-heading-1 text-[hsl(var(--warm-text))] mb-4">
+          <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-[hsl(var(--warm-text))] mb-4">
             ¿Por Qué Elegirme?
           </h2>
           <p className="text-body-lg text-[hsl(var(--warm-muted))]">
@@ -87,7 +87,7 @@ export function WhyChooseMe() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-heading-3 text-[hsl(var(--warm-text))] mb-3">
+                <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-[hsl(var(--warm-text))] mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-body text-[hsl(var(--warm-muted))] leading-relaxed">

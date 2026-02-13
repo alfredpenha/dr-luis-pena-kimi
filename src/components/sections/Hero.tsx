@@ -69,7 +69,7 @@ export function Hero() {
                     : 'opacity-0 translate-y-6'
                 }`}
               >
-                <h1 className="text-display text-[hsl(var(--warm-text))] leading-tight">
+                <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight -tracking-widest text-[hsl(var(--warm-text))]">
                   Diagnóstico preciso con{' '}
                   <span className="text-gradient-navy">tecnología de ultrasonido avanzada</span>
                 </h1>

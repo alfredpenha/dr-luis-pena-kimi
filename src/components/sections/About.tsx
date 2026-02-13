@@ -63,7 +63,7 @@ function StatItem({ icon: Icon, value, suffix, label, isVisible, delay }: StatIt
       <div className="w-12 h-12 bg-[hsl(var(--jade))]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
         <Icon className="w-6 h-6 text-[hsl(var(--jade))]" />
       </div>
-      <div className="text-heading-1 font-bold text-[hsl(var(--navy))] mb-1">
+      <div className="text-lg sm:text-2xl lg:text-4xl font-bold text-[hsl(var(--navy))] mb-1">
         <AnimatedCounter value={value} suffix={suffix} isVisible={isVisible} />
       </div>
       <p className="text-small text-[hsl(var(--warm-muted))]">{label}</p>
@@ -180,7 +180,7 @@ export function About() {
               <span className="inline-block px-4 py-2 bg-[hsl(var(--navy))]/8 text-[hsl(var(--navy))] text-small font-medium rounded-full">
                 Sobre Mí
               </span>
-              <h2 className="text-heading-1 text-[hsl(var(--warm-text))]">
+              <h2 className="text-lg sm:text-2xl lg:text-4xl font-bold text-[hsl(var(--warm-text))]">
                 Dr. Luis Alberto Peña Molina
               </h2>
               <p className="text-body-lg text-[hsl(var(--warm-muted))] leading-relaxed">

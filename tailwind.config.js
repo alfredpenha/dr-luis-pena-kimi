@@ -173,49 +173,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    // Add responsive typography utilities
-    function({ addUtilities, e, theme }) {
-      const newUtilities = {
-        '.text-display': {
-          '@apply text-2xl font-bold leading-tight -tracking-wider': {},
-          '@screen sm': {
-            '@apply text-3xl': {},
-          },
-          '@screen lg': {
-            '@apply text-5xl': {},
-          },
-        },
-        '.text-heading-1': {
-          '@apply text-xl font-bold leading-snug -tracking-tight': {},
-          '@screen sm': {
-            '@apply text-3xl': {},
-          },
-          '@screen lg': {
-            '@apply text-4xl': {},
-          },
-        },
-        '.text-heading-2': {
-          '@apply text-lg font-semibold leading-normal -tracking-tight': {},
-          '@screen sm': {
-            '@apply text-2xl': {},
-          },
-          '@screen lg': {
-            '@apply text-3xl': {},
-          },
-        },
-        '.text-heading-3': {
-          '@apply text-base font-semibold leading-normal': {},
-          '@screen sm': {
-            '@apply text-lg': {},
-          },
-          '@screen lg': {
-            '@apply text-2xl': {},
-          },
-        },
-      };
-      addUtilities(newUtilities);
-    },
-  ],
+  plugins: [require("tailwindcss-animate")],
 }
