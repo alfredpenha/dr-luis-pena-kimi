@@ -58,7 +58,7 @@ export function WhyChooseMe() {
             ¿Por Qué Elegirme?
           </h2>
           <p className="text-body-lg text-[hsl(var(--warm-muted))]">
-            Me comprometo a brindarte la mejor atención médica con profesionalismo, 
+            Me comprometo a brindarte la mejor atención médica con profesionalismo,
             tecnología de punta y un trato humano que te hará sentir en confianza.
           </p>
         </div>

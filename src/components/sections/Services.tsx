@@ -48,7 +48,7 @@ export function Services() {
             Servicios Médicos
           </h2>
           <p className="text-body-lg text-[hsl(var(--warm-muted))]">
-            Atención integral con tecnología de última generación. Ofrecemos una 
+            Atención integral con tecnología de última generación. Ofrecemos una
             amplia gama de servicios de medicina general y ultrasonido diagnóstico.
           </p>
         </div>

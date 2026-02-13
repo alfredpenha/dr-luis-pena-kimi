@@ -65,32 +65,32 @@ module.exports = {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       fontSize: {
-        /* Display - Hero statements, powerful headings */
-        'display': ['4.5rem', { lineHeight: '1.05', letterSpacing: '-0.03em', fontWeight: '700' }],
+        /* Display - Hero statements - RESPONSIVE */
+        'display': ['2.25rem', { lineHeight: '1.05', letterSpacing: '-0.03em', fontWeight: '700' }],
 
-        /* H1 - Primary section headings */
-        'heading-1': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.025em', fontWeight: '700' }],
+        /* H1 - Primary section headings - RESPONSIVE */
+        'heading-1': ['1.75rem', { lineHeight: '1.1', letterSpacing: '-0.025em', fontWeight: '700' }],
 
-        /* H2 - Elegant sub-headings, refined */
-        'heading-2': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '600' }],
+        /* H2 - Elegant sub-headings - RESPONSIVE */
+        'heading-2': ['1.375rem', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '600' }],
 
-        /* H3 - Section subheadings */
-        'heading-3': ['1.875rem', { lineHeight: '1.25', letterSpacing: '-0.01em', fontWeight: '600' }],
+        /* H3 - Section subheadings - RESPONSIVE */
+        'heading-3': ['1.125rem', { lineHeight: '1.25', letterSpacing: '-0.01em', fontWeight: '600' }],
 
         /* H4 - Card titles, subsections */
-        'heading-4': ['1.5rem', { lineHeight: '1.35', fontWeight: '500' }],
+        'heading-4': ['1.125rem', { lineHeight: '1.35', fontWeight: '500' }],
 
         /* H5 - Minor headings */
-        'heading-5': ['1.25rem', { lineHeight: '1.4', fontWeight: '500' }],
+        'heading-5': ['1rem', { lineHeight: '1.4', fontWeight: '500' }],
 
         /* Body Large - Introduction text, featured content */
-        'body-lg': ['1.125rem', { lineHeight: '1.8', fontWeight: '400' }],
+        'body-lg': ['1rem', { lineHeight: '1.8', fontWeight: '400' }],
 
         /* Body - Main paragraph text, optimized for reading comfort */
-        'body': ['1rem', { lineHeight: '1.8', fontWeight: '400' }],
+        'body': ['0.95rem', { lineHeight: '1.8', fontWeight: '400' }],
 
         /* Small - Secondary text, labels */
-        'small': ['0.875rem', { lineHeight: '1.65', fontWeight: '400' }],
+        'small': ['0.8rem', { lineHeight: '1.65', fontWeight: '400' }],
 
         /* Caption - Meta information, fine print */
         'caption': ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: '500' }],
@@ -173,5 +173,49 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    // Add responsive typography utilities
+    function({ addUtilities, e, theme }) {
+      const newUtilities = {
+        '.text-display': {
+          '@apply text-2xl font-bold leading-tight -tracking-wider': {},
+          '@screen sm': {
+            '@apply text-3xl': {},
+          },
+          '@screen lg': {
+            '@apply text-5xl': {},
+          },
+        },
+        '.text-heading-1': {
+          '@apply text-xl font-bold leading-snug -tracking-tight': {},
+          '@screen sm': {
+            '@apply text-3xl': {},
+          },
+          '@screen lg': {
+            '@apply text-4xl': {},
+          },
+        },
+        '.text-heading-2': {
+          '@apply text-lg font-semibold leading-normal -tracking-tight': {},
+          '@screen sm': {
+            '@apply text-2xl': {},
+          },
+          '@screen lg': {
+            '@apply text-3xl': {},
+          },
+        },
+        '.text-heading-3': {
+          '@apply text-base font-semibold leading-normal': {},
+          '@screen sm': {
+            '@apply text-lg': {},
+          },
+          '@screen lg': {
+            '@apply text-2xl': {},
+          },
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 }
