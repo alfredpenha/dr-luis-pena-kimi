@@ -32,7 +32,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="min-h-[calc(100vh-5rem)] bg-gradient-hero pt-20 flex flex-col relative overflow-hidden"
+      className="min-h-[calc(100vh-5rem)] bg-gradient-hero pt-20 lg:pt-14 flex flex-col relative overflow-hidden"
     >
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 bg-pattern-dots opacity-40" />
@@ -42,8 +42,8 @@ export function Hero() {
       <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-[hsl(var(--navy))]/4 rounded-full blur-3xl" />
 
       {/* Main Hero Content */}
-      <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center">
-        <div className="max-w-7xl mx-auto container-padding py-8 lg:py-10 relative z-10 w-full">
+      <div className="min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-18rem)] flex items-center justify-center">
+        <div className="max-w-7xl mx-auto container-padding py-8 lg:py-4 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center lg:-translate-y-4">
             {/* Text Content */}
             <div className="space-y-7">
@@ -141,11 +141,11 @@ export function Hero() {
                 <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-[hsl(var(--navy))]/8 rounded-full blur-2xl" />
 
                 {/* Image Container */}
-                <div className="relative bg-white rounded-3xl shadow-elevated overflow-hidden">
+                <div className="relative bg-white rounded-3xl shadow-elevated overflow-hidden lg:h-[58vh] lg:max-h-[60vh]">
                   <img
-                    src="images/doctor.png"
+                    src="images/doctor.hero.png"
                     alt={`${siteConfig.fullName} - Especialista en Ultrasonido Diagnóstico`}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto lg:h-full object-cover object-[center_12%]"
                     loading="eager"
                   />
 
@@ -167,9 +167,9 @@ export function Hero() {
 
       {/* Stats Bar - Institutional Style */}
       <div className="relative z-10 border-t border-[hsl(var(--warm-border))]">
-        <div className="max-w-7xl mx-auto container-padding py-6">
+        <div className="max-w-7xl mx-auto container-padding py-6 lg:py-3">
           <div
-            className={`grid grid-cols-3 gap-8 transition-all duration-700 delay-500 ease-premium ${
+            className={`grid grid-cols-3 gap-6 lg:gap-8 transition-all duration-700 delay-500 ease-premium ${
               isLoaded
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-4'
@@ -180,17 +180,17 @@ export function Hero() {
               return (
                 <div
                   key={stat.label}
-                  className="flex items-center justify-center gap-4"
+                  className="flex items-center justify-center gap-3 lg:gap-4 min-w-0"
                   style={{ transitionDelay: `${600 + index * 100}ms` }}
                 >
-                  <div className="w-10 h-10 bg-[hsl(var(--navy))]/6 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-[hsl(var(--navy))]/6 rounded-lg flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 text-[hsl(var(--navy))]" />
                   </div>
-                  <div className="text-left">
-                    <p className="text-heading-4 font-bold text-[hsl(var(--warm-text))]">
+                  <div className="text-left min-w-0">
+                    <p className="text-heading-4 font-bold text-[hsl(var(--warm-text))] whitespace-nowrap leading-tight">
                       {stat.value}
                     </p>
-                    <p className="text-caption text-[hsl(var(--warm-muted))] uppercase tracking-wide">
+                    <p className="text-caption text-[hsl(var(--warm-muted))] uppercase tracking-wide leading-tight">
                       {stat.label}
                     </p>
                   </div>
@@ -202,7 +202,7 @@ export function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-28 left-1/2 -translate-x-1/2 hidden lg:block">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden 2xl:block">
         <button
           onClick={scrollToServices}
           className="flex flex-col items-center gap-2 text-[hsl(var(--warm-muted))] hover:text-[hsl(var(--navy))] transition-colors duration-300"
