@@ -32,7 +32,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="min-h-screen bg-gradient-hero pt-20 flex flex-col relative overflow-hidden"
+      className="min-h-[calc(100vh-5rem)] bg-gradient-hero pt-20 flex flex-col relative overflow-hidden"
     >
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 bg-pattern-dots opacity-40" />
@@ -42,9 +42,9 @@ export function Hero() {
       <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-[hsl(var(--navy))]/4 rounded-full blur-3xl" />
 
       {/* Main Hero Content */}
-      <div className="flex-1 flex items-center">
-        <div className="max-w-7xl mx-auto container-padding py-12 lg:py-16 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center">
+        <div className="max-w-7xl mx-auto container-padding py-8 lg:py-10 relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center -translate-y-3 lg:-translate-y-5">
             {/* Text Content */}
             <div className="space-y-7">
               {/* Micro Badge */}
@@ -55,8 +55,8 @@ export function Hero() {
                     : 'opacity-0 translate-y-4'
                 }`}
               >
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--jade))]/10 text-[hsl(var(--jade))] text-small font-medium rounded-full border border-[hsl(var(--jade))]/15">
-                  <Award className="w-4 h-4" />
+                <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.14em] text-[hsl(var(--jade-dark))]">
+                  <Award className="w-3.5 h-3.5" />
                   Especialista en Ultrasonido Diagnóstico en {siteConfig.location.city}
                 </span>
               </div>
@@ -69,11 +69,12 @@ export function Hero() {
                     : 'opacity-0 translate-y-6'
                 }`}
               >
-                <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight -tracking-widest text-[hsl(var(--warm-text))]">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-[hsl(var(--navy))]">
                   Diagnóstico preciso con{' '}
                   <span className="text-gradient-navy">tecnología de ultrasonido avanzada</span>
                 </h1>
-                <p className="text-body-lg text-[hsl(var(--warm-muted))] max-w-xl leading-relaxed">
+                <div className="w-20 h-[2px] rounded-full bg-[hsl(var(--jade))]/70" />
+                <p className="text-body-lg text-[hsl(var(--warm-text))]/80 max-w-lg leading-relaxed">
                   Atención médica personalizada respaldada por años de experiencia
                   y equipamiento diagnóstico de alta precisión para resultados confiables.
                 </p>

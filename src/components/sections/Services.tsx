@@ -41,6 +41,9 @@ export function Services() {
               : 'opacity-0 translate-y-6'
           }`}
         >
+          <p className="text-caption uppercase tracking-[0.14em] text-[hsl(var(--jade-dark))] mb-3">
+            Diagnóstico por Imagen
+          </p>
           <span className="inline-block px-4 py-2 bg-[hsl(var(--jade))]/10 text-[hsl(var(--jade))] text-small font-medium rounded-full mb-4">
             Nuestros Servicios
           </span>
@@ -60,7 +63,7 @@ export function Services() {
             return (
               <Card
                 key={service.id}
-                className={`group bg-white border border-[hsl(var(--warm-border))] rounded-2xl overflow-hidden card-elevate ${
+                className={`group bg-white border border-[hsl(var(--warm-border))]/30 shadow-[0_8px_20px_-14px_rgba(30,42,56,0.24)] rounded-2xl overflow-hidden transition-all duration-200 ease-premium hover:-translate-y-1 hover:shadow-[0_14px_28px_-16px_rgba(30,42,56,0.28)] ${
                   isVisible
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-6'
@@ -69,10 +72,10 @@ export function Services() {
                   transitionDelay: isVisible ? `${index * 80}ms` : '0ms',
                 }}
               >
-                <CardContent className="p-6">
+                <CardContent className="p-7">
                   {/* Icon */}
-                  <div className="w-14 h-14 bg-[hsl(var(--navy))]/8 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[hsl(var(--jade))] group-hover:scale-105 transition-all duration-300 ease-premium">
-                    <Icon className="w-7 h-7 text-[hsl(var(--navy))] group-hover:text-white transition-colors duration-300" />
+                  <div className="w-12 h-12 bg-[hsl(var(--navy))]/6 rounded-lg flex items-center justify-center mb-5 group-hover:bg-[hsl(var(--jade))]/12 transition-all duration-200 ease-premium">
+                    <Icon className="w-5 h-5 text-[hsl(var(--navy))]/85 group-hover:text-[hsl(var(--jade-dark))] transition-colors duration-200" />
                   </div>
 
                   {/* Content */}

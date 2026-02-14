@@ -188,6 +188,12 @@ export function About() {
                 especialización en ultrasonido diagnóstico. Comprometido con brindar
                 atención médica de calidad con un enfoque humano y profesional.
               </p>
+              <blockquote className="border-l-2 border-[hsl(var(--jade))]/35 pl-4 md:pl-5">
+                <p className="text-base sm:text-lg font-medium text-[hsl(var(--jade-dark))] leading-relaxed">
+                  "Creo en escuchar primero al paciente y explicar cada hallazgo con
+                  claridad para que tome decisiones con confianza."
+                </p>
+              </blockquote>
               <p className="text-body text-[hsl(var(--warm-muted))] leading-relaxed">
                 Mi objetivo es proporcionar diagnósticos precisos y un trato cálido a
                 cada paciente, utilizando tecnología de vanguardia en ultrasonido para
