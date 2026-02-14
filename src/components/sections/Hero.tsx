@@ -44,7 +44,7 @@ export function Hero() {
       {/* Main Hero Content */}
       <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center">
         <div className="max-w-7xl mx-auto container-padding py-8 lg:py-10 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center -translate-y-3 lg:-translate-y-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center lg:-translate-y-4">
             {/* Text Content */}
             <div className="space-y-7">
               {/* Micro Badge */}
@@ -62,14 +62,12 @@ export function Hero() {
               </div>
 
               {/* Headline */}
-              <div
-                className={`space-y-4 transition-all duration-700 delay-100 ease-premium ${
-                  isLoaded
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-6'
-                }`}
-              >
-                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-[hsl(var(--navy))]">
+              <div className="space-y-4">
+                <h1
+                  className={`text-3xl sm:text-4xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-[hsl(var(--navy))] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+                  }`}
+                >
                   Diagnóstico preciso con{' '}
                   <span className="text-gradient-navy">tecnología de ultrasonido avanzada</span>
                 </h1>
@@ -82,7 +80,7 @@ export function Hero() {
 
               {/* CTA Buttons */}
               <div
-                className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 delay-200 ease-premium ${
+                className={`flex flex-col sm:flex-row gap-5 transition-all duration-700 delay-200 ease-premium ${
                   isLoaded
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-6'
@@ -100,7 +98,7 @@ export function Hero() {
                   onClick={scrollToServices}
                   variant="outline"
                   size="lg"
-                  className="border-2 border-[hsl(var(--navy))] text-[hsl(var(--navy))] hover:bg-[hsl(var(--navy))] hover:text-white font-medium px-8 py-6 text-body rounded-xl transition-all duration-300 ease-premium"
+                  className="border border-[hsl(var(--navy))]/45 text-[hsl(var(--warm-muted))] hover:border-[hsl(var(--navy))]/60 hover:text-[hsl(var(--navy))] hover:bg-[hsl(var(--navy))]/4 font-medium px-8 py-6 text-body rounded-xl transition-all duration-300 ease-premium"
                 >
                   Ver servicios diagnósticos
                 </Button>
