@@ -1,13 +1,106 @@
 import { useEffect, useState } from 'react';
-import { Phone, ChevronDown, Award, Users, Activity } from 'lucide-react';
+import { Phone, Award, Users, Activity, CheckCircle2, type LucideIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { siteConfig, whatsappMessages } from '@/data/config';
 import { useAnalytics } from '@/hooks/useAnalytics';
 
-const heroStats = [
-  { icon: Award, value: `${siteConfig.stats.yearsExperience}+`, label: 'Años de experiencia' },
-  { icon: Users, value: `${siteConfig.stats.patientsAttended.toLocaleString()}+`, label: 'Pacientes atendidos' },
-  { icon: Activity, value: `${siteConfig.stats.ultrasoundTypes}`, label: 'Tipos de ultrasonido' },
+interface HeroMetricItem {
+  icon: LucideIcon;
+  value: string;
+  label: string;
+  id: 'years' | 'patients' | 'types';
+}
+
+interface HeroMetricsProps {
+  items: HeroMetricItem[];
+  isLoaded: boolean;
+}
+
+function HeroMetrics({ items, isLoaded }: HeroMetricsProps) {
+  const years = items.find((item) => item.id === 'years');
+  const patients = items.find((item) => item.id === 'patients');
+  const types = items.find((item) => item.id === 'types');
+
+  if (!years || !patients || !types) return null;
+
+  const desktopItems = [years, patients, types];
+  const mobileItems = [years, types, patients];
+
+  return (
+    <div
+      className={`mt-4 lg:mt-4 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+      }`}
+    >
+      <div className="hidden lg:grid lg:grid-cols-3 gap-3">
+        {desktopItems.map((item) => {
+          const Icon = item.icon;
+          return (
+            <article
+              key={item.id}
+              className="min-w-0 rounded-2xl bg-white/80 border border-[hsl(var(--warm-border))]/70 shadow-[0_10px_24px_-18px_rgba(30,42,56,0.34)] px-3.5 py-2.5"
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-9 h-9 shrink-0 rounded-lg bg-[hsl(var(--navy))]/7 flex items-center justify-center">
+                  <Icon className="w-4.5 h-4.5 text-[hsl(var(--navy))]" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-base xl:text-lg font-bold text-[hsl(var(--warm-text))] leading-[1.05] whitespace-nowrap">
+                    {item.value}
+                  </p>
+                  <p className="text-[0.78rem] text-[hsl(var(--warm-muted))] leading-[1.05]">
+                    {item.label}
+                  </p>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <div className="grid lg:hidden grid-cols-2 gap-3">
+        {mobileItems.map((item) => {
+          const Icon = item.icon;
+          const isPatients = item.id === 'patients';
+          return (
+            <article
+              key={item.id}
+              className={`rounded-xl bg-white/90 border border-[hsl(var(--warm-border))]/70 shadow-[0_8px_18px_-14px_rgba(30,42,56,0.32)] px-3.5 py-3 ${
+                isPatients ? 'col-span-2' : ''
+              }`}
+            >
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 shrink-0 rounded-md bg-[hsl(var(--navy))]/7 flex items-center justify-center">
+                  <Icon className="w-4 h-4 text-[hsl(var(--navy))]" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-base font-bold text-[hsl(var(--warm-text))] leading-[1.05] whitespace-nowrap">
+                    {item.value}
+                  </p>
+                  {isPatients ? (
+                    <p className="text-xs text-[hsl(var(--warm-muted))] leading-[1.05]">
+                      <span className="block">Pacientes</span>
+                      <span className="block">atendidos</span>
+                    </p>
+                  ) : (
+                    <p className="text-xs text-[hsl(var(--warm-muted))] leading-[1.05]">
+                      {item.label}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+const benefits = [
+  'Atención personalizada',
+  'Resultados el mismo día',
+  'Tecnología de precisión',
 ];
 
 export function Hero() {
@@ -18,6 +111,12 @@ export function Hero() {
     const timer = setTimeout(() => setIsLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  const heroMetrics: HeroMetricItem[] = [
+    { id: 'years', icon: Award, value: `${siteConfig.stats.yearsExperience}+`, label: 'Años de experiencia' },
+    { id: 'patients', icon: Users, value: `${siteConfig.stats.patientsAttended.toLocaleString()}+`, label: 'Pacientes atendidos' },
+    { id: 'types', icon: Activity, value: `${siteConfig.stats.ultrasoundTypes}`, label: 'Tipos de ultrasonido' },
+  ];
 
   const handleWhatsAppClick = () => {
     trackWhatsAppClick('hero');
@@ -32,39 +131,24 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="min-h-[calc(100vh-5rem)] bg-gradient-hero pt-20 lg:pt-14 flex flex-col relative overflow-hidden"
+      className="relative overflow-x-hidden bg-gradient-hero py-12 lg:py-16"
     >
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 bg-pattern-dots opacity-40" />
-
-      {/* Decorative Gradient Orbs */}
+      <div className="absolute inset-0 bg-pattern-dots opacity-35" />
       <div className="absolute top-1/4 -left-32 w-64 h-64 bg-[hsl(var(--jade))]/4 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-[hsl(var(--navy))]/4 rounded-full blur-3xl" />
 
-      {/* Main Hero Content */}
-      <div className="min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-18rem)] flex items-center justify-center">
-        <div className="max-w-7xl mx-auto container-padding py-8 lg:py-4 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center lg:-translate-y-4">
-            {/* Text Content */}
-            <div className="space-y-7">
-              {/* Micro Badge */}
-              <div
-                className={`transition-all duration-700 ease-premium ${
-                  isLoaded
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-4'
-                }`}
-              >
-                <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.14em] text-[hsl(var(--jade-dark))]">
-                  <Award className="w-3.5 h-3.5" />
-                  Especialista en Ultrasonido Diagnóstico en {siteConfig.location.city}
-                </span>
-              </div>
+      <div className="relative z-10 max-w-7xl mx-auto container-padding">
+        <div className="flex flex-col justify-center lg:h-[640px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-start lg:items-center gap-8 lg:gap-10 h-full">
+            <div className="space-y-5 max-w-[520px]">
+              <p className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-[hsl(var(--jade-dark))] leading-[1.05]">
+                <Award className="w-3.5 h-3.5" />
+                Especialista en Ultrasonido Diagnóstico en {siteConfig.location.city}
+              </p>
 
-              {/* Headline */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <h1
-                  className={`text-3xl sm:text-4xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-[hsl(var(--navy))] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  className={`max-w-[520px] text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.55rem] font-extrabold leading-[1.05] tracking-[-0.01em] text-[hsl(var(--navy))] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
                   }`}
                 >
@@ -72,23 +156,17 @@ export function Hero() {
                   <span className="text-gradient-navy">tecnología de ultrasonido avanzada</span>
                 </h1>
                 <div className="w-20 h-[2px] rounded-full bg-[hsl(var(--jade))]/70" />
-                <p className="text-body-lg text-[hsl(var(--warm-text))]/80 max-w-lg leading-relaxed">
+                <p className="text-body-lg text-[hsl(var(--warm-text))]/80 max-w-xl leading-relaxed">
                   Atención médica personalizada respaldada por años de experiencia
                   y equipamiento diagnóstico de alta precisión para resultados confiables.
                 </p>
               </div>
 
-              {/* CTA Buttons */}
-              <div
-                className={`flex flex-col sm:flex-row gap-5 transition-all duration-700 delay-200 ease-premium ${
-                  isLoaded
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-6'
-                }`}
-              >
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
                 <Button
                   onClick={handleWhatsAppClick}
                   size="lg"
+                  aria-label="Agendar consulta por WhatsApp"
                   className="bg-[hsl(var(--jade))] hover:bg-[hsl(var(--jade-dark))] text-white font-medium px-8 py-6 text-body rounded-xl transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:shadow-glow-jade"
                 >
                   <Phone className="w-5 h-5 mr-2" />
@@ -98,119 +176,71 @@ export function Hero() {
                   onClick={scrollToServices}
                   variant="outline"
                   size="lg"
+                  aria-label="Ver servicios diagnósticos"
                   className="border border-[hsl(var(--navy))]/45 text-[hsl(var(--warm-muted))] hover:border-[hsl(var(--navy))]/60 hover:text-[hsl(var(--navy))] hover:bg-[hsl(var(--navy))]/4 font-medium px-8 py-6 text-body rounded-xl transition-all duration-300 ease-premium"
                 >
                   Ver servicios diagnósticos
                 </Button>
               </div>
 
-              {/* Trust Indicators */}
-              <div
-                className={`flex flex-wrap gap-6 pt-2 transition-all duration-700 delay-300 ease-premium ${
-                  isLoaded
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-6'
-                }`}
-              >
-                <div className="flex items-center gap-2 text-small text-[hsl(var(--warm-muted))]">
-                  <div className="w-1.5 h-1.5 bg-[hsl(var(--jade))] rounded-full" />
-                  <span>Atención personalizada</span>
-                </div>
-                <div className="flex items-center gap-2 text-small text-[hsl(var(--warm-muted))]">
-                  <div className="w-1.5 h-1.5 bg-[hsl(var(--jade))] rounded-full" />
-                  <span>Resultados el mismo día</span>
-                </div>
-                <div className="flex items-center gap-2 text-small text-[hsl(var(--warm-muted))]">
-                  <div className="w-1.5 h-1.5 bg-[hsl(var(--jade))] rounded-full" />
-                  <span>Tecnología de precisión</span>
-                </div>
-              </div>
+              <HeroMetrics items={heroMetrics} isLoaded={isLoaded} />
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 mt-3">
+                {benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-center gap-2.5 text-sm text-[hsl(var(--warm-muted))]">
+                    <CheckCircle2 className="w-4 h-4 text-[hsl(var(--jade))] shrink-0" />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Doctor Image */}
-            <div
-              className={`relative transition-all duration-700 delay-400 ease-premium ${
-                isLoaded
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-6'
-              }`}
-            >
-              <div className="relative">
-                {/* Decorative Elements */}
-                <div className="absolute -top-6 -left-6 w-28 h-28 bg-[hsl(var(--jade))]/8 rounded-full blur-2xl" />
-                <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-[hsl(var(--navy))]/8 rounded-full blur-2xl" />
+            <div className="relative lg:h-full lg:flex lg:items-center">
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-[hsl(var(--jade))]/8 rounded-full blur-2xl" />
+              <div className="absolute -bottom-6 -right-6 w-28 h-28 bg-[hsl(var(--navy))]/8 rounded-full blur-2xl" />
 
-                {/* Image Container */}
-                <div className="relative bg-white rounded-3xl shadow-elevated overflow-hidden lg:h-[58vh] lg:max-h-[60vh]">
-                  <img
-                    src="images/doctor.hero.png"
-                    alt={`${siteConfig.fullName} - Especialista en Ultrasonido Diagnóstico`}
-                    className="w-full h-auto lg:h-full object-cover object-[center_12%]"
-                    loading="eager"
-                  />
+              <div className="relative bg-white/60 lg:bg-[hsl(var(--warm-light))] rounded-3xl shadow-elevated overflow-hidden w-full h-full">
+                <img
+                  src="images/doctor.hero.webp"
+                  alt={`${siteConfig.fullName} - Especialista en Ultrasonido Diagnóstico`}
+                  className="w-full h-full object-contain object-center bg-[hsl(var(--warm-light))]"
+                  loading="eager"
+                />
 
-                  {/* Doctor Name Badge */}
-                  <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-premium">
-                    <p className="font-semibold text-[hsl(var(--warm-text))]">
-                      {siteConfig.fullName}
-                    </p>
-                    <p className="text-small text-[hsl(var(--warm-muted))]">
-                      Médico General · Ultrasonido Diagnóstico
-                    </p>
-                  </div>
+                <div className="hidden lg:block absolute left-5 top-5 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-premium max-w-[20rem]">
+                  <p className="font-semibold text-[hsl(var(--warm-text))]">
+                    {siteConfig.fullName}
+                  </p>
+                  <p className="text-small text-[hsl(var(--warm-muted))]">
+                    Médico General · Ultrasonido Diagnóstico
+                  </p>
                 </div>
+              </div>
+
+              <div className="lg:hidden mt-3 bg-white/95 rounded-xl p-3 border border-[hsl(var(--warm-border))]/70 shadow-premium">
+                <p className="font-semibold text-[hsl(var(--warm-text))] text-sm">
+                  {siteConfig.fullName}
+                </p>
+                <p className="text-xs text-[hsl(var(--warm-muted))] leading-[1.05]">
+                  Médico General · Ultrasonido Diagnóstico
+                </p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Stats Bar - Institutional Style */}
-      <div className="relative z-10 border-t border-[hsl(var(--warm-border))]">
-        <div className="max-w-7xl mx-auto container-padding py-6 lg:py-3">
-          <div
-            className={`grid grid-cols-3 gap-6 lg:gap-8 transition-all duration-700 delay-500 ease-premium ${
-              isLoaded
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-4'
-            }`}
-          >
-            {heroStats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={stat.label}
-                  className="flex items-center justify-center gap-3 lg:gap-4 min-w-0"
-                  style={{ transitionDelay: `${600 + index * 100}ms` }}
-                >
-                  <div className="w-10 h-10 bg-[hsl(var(--navy))]/6 rounded-lg flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-[hsl(var(--navy))]" />
-                  </div>
-                  <div className="text-left min-w-0">
-                    <p className="text-heading-4 font-bold text-[hsl(var(--warm-text))] whitespace-nowrap leading-tight">
-                      {stat.value}
-                    </p>
-                    <p className="text-caption text-[hsl(var(--warm-muted))] uppercase tracking-wide leading-tight">
-                      {stat.label}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden 2xl:block">
-        <button
-          onClick={scrollToServices}
-          className="flex flex-col items-center gap-2 text-[hsl(var(--warm-muted))] hover:text-[hsl(var(--navy))] transition-colors duration-300"
-          aria-label="Desplazar a servicios"
-        >
-          <ChevronDown className="w-5 h-5 animate-bounce-slow" />
-        </button>
       </div>
     </section>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
